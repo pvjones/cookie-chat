@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -6,28 +10,133 @@ html {
 body {
   height: 95%;
   width: 100%;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .main-container {
-  width: 75%;
+  width: 66%;
+  min-width: 400px;
+  min-height: 800px;
+  height: 98vh;
   margin: 10px auto;
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(245, 245, 245, 0.86);
   padding: 5px;
-  border-radius: 10px;
+  border: 2px solid #A1D1DA;
+  border-radius: 8px;
+  text-align: center;
+  color: #999999;
 }
 
-.main-container h1 {
-  text-align: center;
+
+ 
+h1 {
+  margin: 30px auto 10px auto;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+h2 {
+  max-width:560px;
+  text-align: justify-all;
+  margin: 0 auto 30px auto;
+  font-size: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.messages-main {
+ width: 66%;
+ height: 70%;
+ padding: 0;
+ border: 2px solid #CCCCCC;
+ margin: 20px auto;
+ border-radius: 8px;
+}
+
+.messages-header {
+  min-height: 50px;
+  width: 100%;
+  background-color: #FEFEFE;
+  border-bottom: 1px solid #DDDDDD;
+  border-radius: 8px 8px 0px 0px;
+  padding: 12px;
+  font-size: 20px;
+}
+
+.message-container {
+  height: calc(100% - 53px);
+  overflow: scroll;
+  border-radius: 0 0 8px 8px;
+}
+
+.input-wrapper {
+  width: 66%;
+  margin: 10px auto;
+  font-family: 'Merriweather';
+}
+
+.sort-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 66%;
+  margin: 10px auto;
+  font-family: 'Merriweather';
+}
+
+.sort-box {
+  margin: 0;
+  width: 37.5%;
+  max-width: 192px;
+}
+
+form {
+  min-width: 60%;
+  margin-right: 10px ;
+}
+
+.input-box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text-box {
-  margin: 0px auto;
-  width: 40%;
+  margin: 0;
+  width: 100%;
 }
 
-p{
+.filter-box {
+  margin: 0;
+  width: 100%;
+}
+
+p {
   text-align: center;
   margin: 3px 0;
   font-size: 17px;
 }
+
+.message-box {
+  width: 100%;
+  margin: 0;
+  padding: 3px 10px 3px 10px;
+  background-color: #FBFBFB;
+  border-bottom: 1px solid #EEEEEE;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  font-family: 'Merriweather';
+  font-size: 14px;
+}
+
+.timestamp {
+  font-size: 10px;
+}
+
+
+
+

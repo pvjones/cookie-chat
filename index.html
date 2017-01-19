@@ -4,22 +4,56 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Montserrat:400,700" rel="stylesheet">
+
   </head>
+
   <body ng-controller="mainCtrl">
+
     <div class="main-container">
+
       <h1> DevMountain Chat Room </h1>
-      <form ng-submit="postMessage(message)">
-        <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
-      </form>
-      <div class="messages-container">
-        <p ng-repeat="message in messages ">
-          {{message.message}} </p>
+      <h2> A simple parse-powered and not-so-private chat service </h2>
+
+      <div class="input-wrapper">
+        <div class="input-box">
+          <form ng-submit="postMessage(message)">
+            <input class="form-control text-box" type="text" ng-model="message" placeholder="Compose new message">
+          </form>
+          <div>
+            <input class="form-control filter-box" placeholder="Filter by:" ng-model="filterPredicate"/>
+          </div>
+        </div>
       </div>
+
+      <div class="sort-wrapper">
+        <select class="form-control sort-box" ng-model="sortDirection" ng-init="sortDirection = '-'">
+          <option value="-">Newest First</option>
+          <option value="+">Oldest First</option>
+        </select>
+      </div>
+
+      <div class="messages-main">
+        <div class="messages-header">
+          Messages from DevMountaineers
+        </div>
+        <div class="message-container">
+          <div class="message-box" ng-repeat="message in messages | filter: {message: filterPredicate} | orderBy: sortDirection + 'createdAt'">
+            <div class="message">{{message.message}}</div>
+            <div class="timestamp">{{message.createdAt | date: "short"}}</div>
+          </div>
+        </div>
+
     </div>
+
+
+
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/messageService.js"></script>
+
   </body>
 </html>
